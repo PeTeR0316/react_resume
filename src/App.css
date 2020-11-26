@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+.App {
+    
+}
+
+.black-nav {
+    background-color: #44549b;
+    width: 100%;
+    display: flex;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+div.skillList > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 30px 10px;
+}
+
+div.skillList > ul > li {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    background-color: #44549b;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+div.skillList > ul > li:not(:last-child) {
+    border-right: 1px solid #ffffff;
+}
+
+/* .list {
+    margin-top: 30px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.modal {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eeeeee;
+} */
