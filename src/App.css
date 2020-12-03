@@ -8,11 +8,12 @@ ul {
     list-style: none;
 }
 
-.App {
-    
+a {
+    text-decoration: none;
+    color: #000;
 }
 
-.black-nav {
+#header {
     background-color: #44549b;
     width: 100%;
     display: flex;
@@ -22,13 +23,13 @@ ul {
     font-size: 20px;
 }
 
-div.skillList > ul {
+ul#skillList {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 30px 10px;
 }
 
-div.skillList > ul > li {
+ul#skillList > li {
     display: inline-block;
     height: 40px;
     line-height: 40px;
@@ -36,21 +37,9 @@ div.skillList > ul > li {
     text-align: center;
     color: #ffffff;
     font-weight: bold;
+    cursor: pointer;
 }
 
-div.skillList > ul > li:not(:last-child) {
+ul#skillList > li:not(:last-child) {
     border-right: 1px solid #ffffff;
 }
-
-/* .list {
-    margin-top: 30px;
-    text-align: left;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.modal {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #eeeeee;
-} */
