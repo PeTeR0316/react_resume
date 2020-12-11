@@ -196,6 +196,46 @@ class App extends Component {
                 >
 
                 </Control>
+
+                {/* <ReadContents 
+                        data={this.state.contents}
+                        title= {_title}
+                        desc={_desc}
+                        onChangePage={function(id) {
+                            this.setState({
+                                listName : this.state.contents[id - 1].title,
+                                selectedSkill_id : Number(id)
+                            })
+                        }.bind(this)} 
+                    /> */}
+
+                    {/* {this.getContent()}
+
+                    <Control
+                        onChangeMode={function(_mode) {
+                            if(_mode === "delete") {
+                                if(window.confirm("삭제하시겠습니까?")) {
+                                    let i = 0;
+                                    let _contents = Array.from(this.state.contents)
+                                    while(i < this.state.contents.length) {
+                                        if(_contents[i].id === this.state.selectedSkill_id) {
+                                            _contents.splice(i,1);
+                                            break;
+                                        }
+
+                                        i += 1
+                                    }
+                                }
+                            } else {
+                                this.setState({
+                                    mode: "read",
+                                    contents: _contents
+                                })
+                            }
+                        }.bind(this)}
+                    >
+
+                    </Control> */}
             </div>
         );
     }

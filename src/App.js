@@ -8,6 +8,14 @@ import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 import Header from './components/header';
 import PersonInfo from './components/PersonInfo';
 import Nav from './components/Nav';
+import HtmlContents from './components/HtmlContents';
+import JsContents from './components/JsContents';
+import JQueryContents from './components/jQueryContents';
+import VueContents from './components/VueContents';
+import Es6Contents from './components/Es6Contents';
+import PhpContents from './components/PhpContents';
+import MysqlContents from './components/MysqlContents';
+import WebPlanningContents from './components/WebPlanningContents';
 import ReadContents from './components/ReadContents';
 import CreateContents from './components/CreateContents';
 import Control from './components/Control';
@@ -22,7 +30,7 @@ class App extends Component {
             mode : "create",
             listName : "HTML, CSS",
             selectedSkill_id : 3,
-            selectSkill : {title: "HTML, CSS", desc:"HTML, CSS"},
+            selectSkill : "html",
             titles : {title: "Skills"},
             contents : [
                 {id:1, title:"HTML, CSS", desc: "레이아웃 및 입력양식 구현"},
@@ -92,6 +100,30 @@ class App extends Component {
         return _article;
     }
 
+    skillContents() {
+        let skillContentsComponent = null;
+
+        if(this.state.selectSkill === "html") {
+            skillContentsComponent = <HtmlContents></HtmlContents>;
+        } else if(this.state.selectSkill === "js") {
+            skillContentsComponent = <JsContents></JsContents>;
+        } else if(this.state.selectSkill === "jQuery") {
+            skillContentsComponent = <JQueryContents></JQueryContents>;
+        } else if(this.state.selectSkill === "vue") {
+            skillContentsComponent = <VueContents></VueContents>;
+        } else if(this.state.selectSkill === "es6") {
+            skillContentsComponent = <Es6Contents></Es6Contents>;
+        } else if(this.state.selectSkill === "php") {
+            skillContentsComponent = <PhpContents></PhpContents>;
+        } else if(this.state.selectSkill === "mysql") {
+            skillContentsComponent = <MysqlContents></MysqlContents>;
+        } else {
+            skillContentsComponent = <WebPlanningContents></WebPlanningContents>;
+        }
+
+        return skillContentsComponent;
+    }
+
     render() {
         let _title, _desc = null;
 
@@ -129,11 +161,12 @@ class App extends Component {
             _desc = this.state.contents[2].desc;
         }
 
+
         return (
             <div className="App">
-                <Header />
+                <Header></Header>
 
-                <PersonInfo on />
+                <PersonInfo></PersonInfo>
 
                 <Nav onChangeSkill={
                     function(selectSkillName) {
@@ -144,45 +177,9 @@ class App extends Component {
                 }
                 ></Nav>
 
-                <ReadContents 
-                    data={this.state.contents}
-                    title= {_title}
-                    desc={_desc}
-                    onChangePage={function(id) {
-                        this.setState({
-                            listName : this.state.contents[id - 1].title,
-                            selectedSkill_id : Number(id)
-                        })
-                    }.bind(this)} 
-                />
-
-                {this.getContent()}
-
-                <Control
-                    onChangeMode={function(_mode) {
-                        if(_mode === "delete") {
-                            if(window.confirm("삭제하시겠습니까?")) {
-                                let i = 0;
-                                let _contents = Array.from(this.state.contents)
-                                while(i < this.state.contents.length) {
-                                    if(_contents[i].id === this.state.selectedSkill_id) {
-                                        _contents.splice(i,1);
-                                        break;
-                                    }
-
-                                    i += 1
-                                }
-                            }
-                        } else {
-                            this.setState({
-                                mode: "read",
-                                contents: _contents
-                            })
-                        }
-                    }.bind(this)}
-                >
-
-                </Control>
+                <main>
+                    {this.skillContents()}
+                </main>
             </div>
         );
     }

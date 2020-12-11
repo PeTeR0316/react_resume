@@ -1,7 +1,7 @@
 import React, { useState }from 'react';
 import { Component } from 'react';
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
-
+import personImg from "../img/박지호 사본.jpg"
 
 class PersonInfo extends Component {
     render() {
@@ -9,7 +9,7 @@ class PersonInfo extends Component {
             <div className="personInfo">
                 <ul>
                     <li>
-                        <img src="" />
+                        <img src={personImg} />
                         <div>
                         <ul>
                             <li>
